@@ -1,13 +1,19 @@
+import { useState, useEffect } from "react";
 import "./App.css";
+import { mockData } from "./data/mock";
+import TypeContainer from "./components/TypeContainer";
 
 function App() {
+  const [text, setText] = useState<string>("");
+
+  useEffect(() => {
+    const mockText = mockData;
+    setText(mockText);
+  }, []);
+
   return (
     <>
-      <div className="flex h-screen items-center justify-center bg-black">
-        <p className="text-4xl font-bold text-white">
-          Tailwind 스타일링 테스트🔥
-        </p>
-      </div>
+      <TypeContainer text={text} maxLineWidth={70} />
     </>
   );
 }
