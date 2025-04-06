@@ -8,6 +8,7 @@ type WordProps = {
 
 type LineProps = {
   lineContent: string;
+  isCurrentLine: boolean;
 };
 
 function Text({ letterContent }: TextProps) {
@@ -28,7 +29,7 @@ function Word({ wordContent }: WordProps) {
   );
 }
 
-function Line({ lineContent }: LineProps) {
+function Line({ lineContent, isCurrentLine }: LineProps) {
   return (
     <p className="w-4/5 whitespace-nowrap">
       {lineContent.split(" ").map((word) => (
