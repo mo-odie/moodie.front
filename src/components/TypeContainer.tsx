@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { splitTextToLines } from "../utils/contentUtil";
 import Line from "./TextDisplay";
+import TypeInput from "./TypeInput";
 
 type TypeContainerProps = {
   text: string;
@@ -10,6 +11,7 @@ type TypeContainerProps = {
 function TypeContainer({ text, maxLineWidth }: TypeContainerProps) {
   const [lines, setLines] = useState<string[]>([]);
   const [currentLineIdx, setCurrentLineIdx] = useState<number>(0);
+  const [typeText, setTypeText] = useState("");
 
   useEffect(() => {
     const splitLines = splitTextToLines(text, maxLineWidth);
@@ -45,6 +47,7 @@ function TypeContainer({ text, maxLineWidth }: TypeContainerProps) {
           isCurrentLine={index === getCurrentLinePosition()}
         />
       ))}
+      <TypeInput setTypeText={setTypeText} />
     </div>
   );
 }

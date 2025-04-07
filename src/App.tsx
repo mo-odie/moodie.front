@@ -13,7 +13,7 @@ function App() {
 
   return (
     <>
-      <TypeContainer text={text} maxLineWidth={70} />
+      <TypeContainer text={text} maxLineWidth={55} />
     </>
   );
 }
