@@ -8,7 +8,7 @@ function TypeInput({ setTypeText }: TypeInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
-    // console.log(event.key);
+    console.log(event.key);
     setTypeText(event.key);
   }
 

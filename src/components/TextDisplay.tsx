@@ -1,5 +1,6 @@
 type TextProps = {
   letterContent: string;
+  status: "waiting" | "correct" | "wrong";
 };
 
 type WordProps = {
@@ -11,9 +12,15 @@ type LineProps = {
   isCurrentLine: boolean;
 };
 
-function Text({ letterContent }: TextProps) {
+function Text({ letterContent, status = "waiting" }: TextProps) {
+  const colorMap = {
+    waiting: "text-white opacity-50",
+    correct: "text-white",
+    wrong: "text-secondary",
+  };
+
   return (
-    <span className="font-body text-gray-light text-body-medium">
+    <span className={`font-body text-body-medium ${colorMap[status]}`}>
       {letterContent}
     </span>
   );
@@ -31,7 +38,7 @@ function Word({ wordContent }: WordProps) {
 
 function Line({ lineContent, isCurrentLine }: LineProps) {
   return (
-    <p className="w-4/5 whitespace-nowrap">
+    <p className="w-full pl-[30px]">
       {lineContent.split(" ").map((word) => (
         <Word wordContent={word}></Word>
       ))}
