@@ -39,7 +39,7 @@ function TypeContainer({ text, maxLineWidth }: TypeContainerProps) {
   };
 
   return (
-    <div className="bg-gray-basic flex h-screen w-full flex-col items-center justify-center">
+    <div className="absolute left-[612px] top-[300px] flex h-[562px] w-[700px] flex-col items-center justify-center bg-[rgba(63,77,79,0.2)]">
       {visibleLines().map((lineContent: string, index: number) => (
         <Line
           key={currentLineIdx - 1 + index}

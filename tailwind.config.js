@@ -18,8 +18,8 @@ export default {
         "gray-dark": "#2C2D31",
       },
       fontSize: {
-        "head-medium": ["6rem", { fontWeight: "500" }],
-        "body-medium": ["4rem", { fontWeight: "500" }],
+        "head-medium": ["3rem", { fontWeight: "700" }],
+        "body-medium": ["2.2rem", { fontWeight: "600" }],
         "body-small": ["2rem", { fontWeight: "200" }],
       },
     },
