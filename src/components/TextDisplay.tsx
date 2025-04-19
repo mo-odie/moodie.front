@@ -25,7 +25,7 @@ type LineProps = {
 
 function Text({ letterContent, status = "waiting" }: TextProps) {
   const colorMap = {
-    waiting: "text-basic opacity-70", // 약간 더 진하게 표시
+    waiting: "text-basic opacity-50", // 약간 더 진하게 표시
     correct: "text-basic", // 기본 녹색 색상 사용
     wrong: "text-red-500", // 오류는 빨간색 유지
     cursor: "bg-basic text-gray-dark", // 커서 색상 변경
