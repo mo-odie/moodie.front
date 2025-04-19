@@ -21,7 +21,7 @@ function App() {
           className="absolute left-0 top-0 h-full w-full object-cover"
           draggable={false}
         />
-        <TypeContainer text={text} maxLineWidth={40} />
+        <TypeContainer text={text} maxLineWidth={35} />
       </div>
     </div>
   );

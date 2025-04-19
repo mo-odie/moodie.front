@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ["Inter", "sans-serif"],
+        body: ["DOSGothic", "sans-serif"],
       },
       colors: {
         primary: "#CDB544",

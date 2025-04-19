@@ -1,15 +1,23 @@
 import { useEffect, useRef } from "react";
 
 type TypeInputProps = {
-  setTypeText: React.Dispatch<React.SetStateAction<string>>;
+  setTypeText: (key: string) => void;
 };
 
 function TypeInput({ setTypeText }: TypeInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   function onKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
-    console.log(event.key);
-    setTypeText(event.key);
+    // 특수 키 처리
+    if (event.key === "Backspace") {
+      setTypeText("Backspace");
+    } else if (event.key.length === 1) {
+      // 일반 키 입력만 처리
+      setTypeText(event.key);
+    }
+
+    // 기본 동작 방지 (페이지 스크롤 등)
+    event.preventDefault();
   }
 
   useEffect(() => {
@@ -20,6 +28,7 @@ function TypeInput({ setTypeText }: TypeInputProps) {
     const focusByClick = () => {
       if (inputRef.current) inputRef.current.focus();
     };
+
     document.addEventListener("click", focusByClick);
     return () => document.removeEventListener("click", focusByClick);
   }, []);
@@ -29,6 +38,7 @@ function TypeInput({ setTypeText }: TypeInputProps) {
       ref={inputRef}
       onKeyDown={onKeyDown}
       className="absolute -z-10 h-px w-px opacity-0"
+      autoFocus
     />
   );
 }
