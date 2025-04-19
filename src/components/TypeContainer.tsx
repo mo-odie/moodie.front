@@ -102,7 +102,7 @@ function TypeContainer({ text, maxLineWidth }: TypeContainerProps) {
       lineIndex + (currentLineIdx - getCurrentLinePosition());
 
     // 현재 줄이 아닌 경우
-    if (displayLineIndex !== currentLineIdx) return null;
+    if (displayLineIndex !== currentLineIdx) return undefined;
 
     return {
       typedText,
@@ -112,7 +112,7 @@ function TypeContainer({ text, maxLineWidth }: TypeContainerProps) {
   };
 
   return (
-    <div className="absolute left-[612px] top-[300px] flex h-[562px] w-[700px] flex-col items-center justify-start bg-[rgba(63,77,79,0.2)] pt-5">
+    <div className="flex-col items-center justify-start pt-3">
       {visibleLines().map((lineContent: string, index: number) => (
         <Line
           key={`line-${currentLineIdx - getCurrentLinePosition() + index}`}

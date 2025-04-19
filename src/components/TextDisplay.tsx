@@ -25,10 +25,10 @@ type LineProps = {
 
 function Text({ letterContent, status = "waiting" }: TextProps) {
   const colorMap = {
-    waiting: "text-white opacity-50",
-    correct: "text-white",
-    wrong: "text-red-500",
-    cursor: "bg-white text-black",
+    waiting: "text-basic opacity-70", // 약간 더 진하게 표시
+    correct: "text-basic", // 기본 녹색 색상 사용
+    wrong: "text-red-500", // 오류는 빨간색 유지
+    cursor: "bg-basic text-gray-dark", // 커서 색상 변경
   };
 
   return (
@@ -47,7 +47,7 @@ function Word({ wordContent, startPosition, typingStatus }: WordProps) {
 
         // 타이핑 상태가 있는 경우에만 처리
         if (typingStatus) {
-          const { typedText, cursorPosition, mistakes } = typingStatus;
+          const { cursorPosition, mistakes } = typingStatus;
 
           if (absolutePosition < cursorPosition) {
             // 이미 타이핑한 글자
@@ -80,7 +80,7 @@ function Line({ lineContent, isCurrentLine, typingStatus }: LineProps) {
   });
 
   return (
-    <p className="w-full pl-[30px]">
+    <p className="w-full pl-[15px]">
       {wordsWithPosition.map(({ word, position }, index) => (
         <Word
           key={`word-${index}`}

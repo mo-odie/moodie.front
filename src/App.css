@@ -1,1 +1,64 @@
+/* App.css 또는 별도 CSS 파일에 추가 */
 
+.fixed-background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+/* 모니터 화면 영역 - TypeContainer의 위치 조정 */
+/* 
+    이 값들은 실제 모니터 위치에 맞게 조정해야 합니다
+    아래 값들은 예시입니다
+  */
+.monitor-screen-area {
+  position: absolute;
+  top: 392px; /* 모니터 화면 상단 위치 */
+  left: 770px; /* 모니터 화면 좌측 위치 */
+  width: 380px; /* 모니터 화면 너비 */
+  height: 285px; /* 모니터 화면 높이 */
+  background-color: rgba(0, 255, 255, 0.1); /* 디버깅용, 실제론 제거 */
+}
+
+/* 미디어 쿼리를 통한 큰 화면 대응 */
+@media (min-width: 1921px) {
+  .fixed-background {
+    max-width: 1920px;
+    max-height: 1080px;
+    margin: 0 auto;
+  }
+}
+
+/* 비디오 전체 화면 설정 */
+.video-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 비디오 오버레이 설정 */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 비디오 컨테이너 수직 중앙 정렬 */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
